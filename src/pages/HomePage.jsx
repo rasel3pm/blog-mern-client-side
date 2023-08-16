@@ -37,8 +37,8 @@ const HomePage = () => {
     },
   ];
   return (
-    <div>
-      <div className="container my-3">
+    <div className="bg-custom">
+      <div className="container py-3">
         <h4>Features</h4>
         <div className="row">
           {data.map((item) => (

@@ -46,11 +46,12 @@ const RegisterPage = () => {
   return (
     <div
       style={divStyle}
-      className="container  shadow border rounded my-3 p-md-5"
+      className="container  shadow border rounded mt-5 py-3 p-md-5"
     >
+      <span className="fs-5">Register Form</span>
       <div className="row">
         <div className="col-md-12">
-          <label className="pb-2 text-black-50">Name</label>
+          <label className="py-2 text-black-50">Name</label>
           <input
             type="text"
             onChange={(e) => {

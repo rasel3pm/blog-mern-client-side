@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
+import "../src/assets/css/style.css";
 import "toastify-js/src/toastify.css";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";

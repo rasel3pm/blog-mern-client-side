@@ -12,9 +12,9 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<ReadPage />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/create" element={<PostCreateUpdatePage />} />
-          <Route path="/read" element={<ReadPage />} />
           <Route path="/post/:id" element={<SinglePost />} />
           <Route path="/register" element={<RegisterPage />} />
         </Routes>

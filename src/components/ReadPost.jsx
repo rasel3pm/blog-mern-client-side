@@ -25,14 +25,14 @@ const ReadPost = () => {
         if (res.status === 200) {
           Toastify({
             text: "Post delete success",
-            duration: 5000,
+            duration: 2000,
             className: "info",
             position: "center",
           }).showToast();
         } else {
           Toastify({
             text: "Somthing went wrong",
-            duration: 5000,
+            duration: 3000,
             className: "info",
             close: true,
             position: "center",
@@ -46,8 +46,16 @@ const ReadPost = () => {
         {data.map((item) => (
           <div key={item["_id"]} className="col-12 col-md-6 mb-4">
             <div className="card p-3 shadow-sm">
+              <div className="card-image">
+                <img width="510px" height="200px" src={item["image"]} alt="" />
+              </div>
               <div className="card-title border-bottom">
-                <h4>{item["title"]}</h4>
+                <Link
+                  className="text-decoration-none"
+                  to={`/post/${item["_id"]}`}
+                >
+                  <h5>{item["title"]}</h5>
+                </Link>
               </div>
               <div className="card-body">
                 {/* Display a truncated version of the content */}

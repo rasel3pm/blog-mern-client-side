@@ -3,7 +3,7 @@ import CreatePost from "../components/CreatePost";
 
 const PostCreateUpdatePage = () => {
   return (
-    <div>
+    <div className="mt-4">
       <CreatePost />
     </div>
   );

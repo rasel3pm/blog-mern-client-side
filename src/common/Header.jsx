@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import LoginModel from "../components/LoginModel";
 
@@ -9,32 +9,34 @@ const Header = () => {
       <Navbar bg="light" className="shadow-sm" expand="lg">
         <Container>
           <NavLink className="text-decoration-none fs-2 fw-semibold" to="/">
-            <Navbar.Brand>Blog-MERN</Navbar.Brand>
+            <Navbar.Brand>
+              <img width={50} src="../../public/image/logo.svg" />
+            </Navbar.Brand>
           </NavLink>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mx-auto">
               <NavLink
-                className="mx-2 text-black fw-normal text-decoration-none"
-                to="/"
+                className="mx-2  fw-bold text-decoration-none"
+                to="/home"
               >
                 Home
               </NavLink>
               <NavLink
-                className="mx-2 text-black fw-normal text-decoration-none"
+                className="mx-2 fw-bold text-decoration-none"
                 to="/create"
               >
                 Create post
               </NavLink>
-              <NavLink
-                className="mx-2 text-black fw-normal text-decoration-none"
-                to="/read"
-              >
+              <NavLink className="mx-2  fw-bold text-decoration-none" to="/">
                 Blogs
               </NavLink>
             </Nav>
             <Nav>
               <LoginModel />
+              <Link className="btn" to={"/register"}>
+                Register
+              </Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
