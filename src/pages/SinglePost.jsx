@@ -28,7 +28,7 @@ const SinglePost = () => {
           </div>
         </div>
         <div className="d-flex gap-2 pt-2">
-          <Link className="btn btn-primary" to={"/read"}>
+          <Link className="btn btn-primary" to={"/"}>
             Back
           </Link>
           <CustomModal id={id} />
