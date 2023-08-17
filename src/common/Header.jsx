@@ -2,41 +2,42 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import LoginModel from "../components/LoginModel";
+import Logo from "../assets/image/blogLogo.png";
 
 const Header = () => {
   return (
     <div>
-      <Navbar bg="light" className="shadow-sm" expand="lg">
+      <Navbar bg="light" className="shadow-sm sticky-top" expand="lg">
         <Container>
           <NavLink className="text-decoration-none fs-2 fw-semibold" to="/">
             <Navbar.Brand>
-              <img width={50} src="../../public/image/logo.svg" />
+              <img width={100} src={Logo} />
             </Navbar.Brand>
           </NavLink>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mx-auto">
+            <Nav className="mx-auto text-center">
               <NavLink
-                className="mx-2  fw-bold text-decoration-none"
+                className=" btn  fw-bold text-decoration-none"
                 to="/home"
               >
                 Home
               </NavLink>
               <NavLink
-                className="mx-2 fw-bold text-decoration-none"
+                className="mx-2 btn fw-bold text-decoration-none"
                 to="/create"
               >
                 Create post
               </NavLink>
-              <NavLink className="mx-2  fw-bold text-decoration-none" to="/">
+              <NavLink className=" btn  fw-bold text-decoration-none" to="/">
                 Blogs
               </NavLink>
             </Nav>
             <Nav>
               <LoginModel />
-              <Link className="btn" to={"/register"}>
+              <NavLink className="btn" to={"/register"}>
                 Register
-              </Link>
+              </NavLink>
             </Nav>
           </Navbar.Collapse>
         </Container>

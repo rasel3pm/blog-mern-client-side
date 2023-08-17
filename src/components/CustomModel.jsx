@@ -13,6 +13,7 @@ const CustomModal = ({ id }) => {
     title: "",
     author: "",
     content: "",
+    image: "",
   });
 
   useEffect(() => {
@@ -26,6 +27,7 @@ const CustomModal = ({ id }) => {
             title: postData.title,
             author: postData.author,
             content: postData.content,
+            image: postData.image,
           });
         })
         .catch((error) => {
@@ -59,7 +61,8 @@ const CustomModal = ({ id }) => {
       <Modal show={show} onHide={handleClose}>
         <div className="row p-4">
           <h4 className="border-bottom pb-2">Update Post</h4>
-          <div className="col-md-6">
+          {/* Title */}
+          <div className="col-md-12">
             <label className="pb-2 text-black-50">Post Title</label>
             <input
               type="text"
@@ -71,6 +74,7 @@ const CustomModal = ({ id }) => {
             />
             <br />
           </div>
+
           <div className="col-md-6">
             <label className="pb-2 text-black-50">Author</label>
             <input
@@ -82,6 +86,17 @@ const CustomModal = ({ id }) => {
               className="form-control"
             />
             <br />
+          </div>
+          <div className="col-md-6 py-2">
+            <label className=" text-black-50">Image Url</label>
+            <input
+              type="tesxt"
+              value={formData.image}
+              onChange={(e) => {
+                changeHandler("image", e.target.value);
+              }}
+              className="form-control"
+            />
           </div>
           <div className="col-md-12">
             <label className="pb-2 text-black-50">Content</label>

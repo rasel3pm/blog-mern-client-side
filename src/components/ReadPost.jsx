@@ -47,7 +47,12 @@ const ReadPost = () => {
           <div key={item["_id"]} className="col-12 col-md-6 mb-4">
             <div className="card p-3 shadow-sm">
               <div className="card-image">
-                <img width="510px" height="200px" src={item["image"]} alt="" />
+                <img
+                  className="w-100"
+                  height="200px"
+                  src={item["image"]}
+                  alt=""
+                />
               </div>
               <div className="card-title border-bottom">
                 <Link

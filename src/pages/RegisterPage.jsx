@@ -34,7 +34,7 @@ const RegisterPage = () => {
           position: "center",
         }).showToast();
       }
-      navigate("/read"); //redirect to blog page
+      navigate("/"); //redirect to blog page
     });
   };
   const divStyle = {
