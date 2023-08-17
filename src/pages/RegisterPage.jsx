@@ -21,10 +21,11 @@ const RegisterPage = () => {
       if (res.status === 200) {
         Toastify({
           text: `${res.data.message}`,
-          duration: 4000,
+          duration: 3000,
           className: "info",
           position: "center",
         }).showToast();
+        navigate("/login"); //redirect to blog page
       }
       if (!res.status === 200) {
         Toastify({
@@ -34,7 +35,6 @@ const RegisterPage = () => {
           position: "center",
         }).showToast();
       }
-      navigate("/"); //redirect to blog page
     });
   };
   const divStyle = {

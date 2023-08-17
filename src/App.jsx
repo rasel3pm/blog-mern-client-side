@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SinglePost from "./pages/SinglePost";
 import RegisterPage from "./pages/RegisterPage";
 import Dashboard from "./pages/dashboard/Dashboard";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/post/:id" element={<SinglePost />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
       </BrowserRouter>
     </>

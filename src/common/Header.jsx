@@ -23,12 +23,6 @@ const Header = () => {
               >
                 Home
               </NavLink>
-              <NavLink
-                className="mx-2 btn fw-bold text-decoration-none"
-                to="/create"
-              >
-                Create post
-              </NavLink>
               <NavLink className=" btn  fw-bold text-decoration-none" to="/">
                 Blogs
               </NavLink>
