@@ -38,9 +38,9 @@ const LoginModel = () => {
           position: "center",
         }).showToast();
       }
-      const token = Cookies.get("token");
-      if (token) {
-        navigate("/"); //redirect to blog page
+      const getToken = Cookies.get("token");
+      if (getToken) {
+        navigate("/dashboard"); //redirect to blog page
       } else {
         navigate("/home"); //redirect to blog page
       }
