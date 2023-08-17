@@ -44,8 +44,6 @@ const LoginModel = () => {
       } else {
         navigate("/home"); //redirect to blog page
       }
-
-      navigate("/"); //redirect to blog page
       handleClose(true);
     });
   };
