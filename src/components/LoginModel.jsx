@@ -38,6 +38,12 @@ const LoginModel = () => {
           position: "center",
         }).showToast();
       }
+      const token = Cookies.get("token");
+      if (token) {
+        navigate("/"); //redirect to blog page
+      } else {
+        navigate("/home"); //redirect to blog page
+      }
 
       navigate("/"); //redirect to blog page
       handleClose(true);
