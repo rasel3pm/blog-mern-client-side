@@ -21,7 +21,6 @@ const LoginPage = () => {
       if (res.status === 200) {
         // Assuming the response contains a token property, you can extract it from the response
         const token = res.data.token;
-        console.log(token);
         // Set the token as a cookie
         Cookies.set("token", token, { expires: 7 }); // Expires in 7 days
         Toastify({
@@ -46,7 +45,7 @@ const LoginPage = () => {
 
   return (
     <>
-      <Form>
+      <form>
         <div
           style={divStyle}
           className="container  shadow border rounded p-md-3"
@@ -87,7 +86,7 @@ const LoginPage = () => {
             </div>
           </div>
         </div>
-      </Form>
+      </form>
     </>
   );
 };
