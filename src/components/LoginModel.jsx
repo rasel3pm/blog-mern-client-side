@@ -34,7 +34,7 @@ const LoginModel = () => {
         }).showToast();
       }
 
-      navigate("/read"); //redirect to blog page
+      navigate("/"); //redirect to blog page
       handleClose(true);
     });
   };

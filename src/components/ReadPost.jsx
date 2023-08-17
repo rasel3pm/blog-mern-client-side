@@ -15,12 +15,12 @@ const ReadPost = () => {
         setData(res.data["post"]);
       })
       .catch((error) => console.error(error));
-  }, [data]);
+  }, []);
 
   //delete post by id
   const deletePost = (id) => {
     axios
-      .delete("https://serversideblog.vercel.app/api/v1/delete/" + id)
+      .delete(`https://serversideblog.vercel.app/api/v1/delete/${id}`)
       .then((res) => {
         if (res.status === 200) {
           Toastify({
@@ -29,6 +29,9 @@ const ReadPost = () => {
             className: "info",
             position: "center",
           }).showToast();
+
+          // Remove the deleted post from the data array
+          setData((prevData) => prevData.filter((item) => item._id !== id));
         } else {
           Toastify({
             text: "Somthing went wrong",
