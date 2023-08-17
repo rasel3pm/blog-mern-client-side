@@ -24,7 +24,7 @@ const LoginModel = () => {
   const onSubnit = (e) => {
     e.preventDefault();
     let URL = "https://serversideblog.vercel.app/api/v1/login";
-    axios.post(URL, formData, { withCredentials: true }).then((res) => {
+    axios.post(URL, formData).then((res) => {
       if (res.status === 200) {
         Toastify({
           text: `${res.data.message}`,
