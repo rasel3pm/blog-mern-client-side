@@ -17,22 +17,17 @@ const SinglePost = () => {
 
   if (data) {
     return (
-      <div className="container py-3">
-        <div className=" p-3">
-          <div className="card-image text-center">
-            <img
-              className="w-100 rounded"
-              height="350px"
-              src={data["image"]}
-              alt=""
-            />
+      <div className="container pt-3">
+        <div className="card p-3">
+          <div className="card-image">
+            <img className="w-100" height="300px" src={data["image"]} alt="" />
           </div>
-          <div className="card-title pt-3 px-5">
+          <div className="card-title">
             <h4 className="fw-bold">{data["title"]}</h4>
             <p>{data["content"]}</p>
           </div>
         </div>
-        <div className="d-flex px-5 gap-2">
+        <div className="d-flex gap-2 pt-2">
           <Link className="btn btn-dark" to={"/"}>
             Go Back
           </Link>

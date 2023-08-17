@@ -28,7 +28,7 @@ const CreatePost = () => {
           position: "center",
         }).showToast();
       }
-      navigate("/read");
+      navigate("/");
     });
   };
   const divStyle = {
