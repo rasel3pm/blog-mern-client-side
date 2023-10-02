@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Toastify from "toastify-js";
 import backgroundSvg from "../assets/image/mark.svg";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { RegisterRequiest } from "../apiRequiest/apiRequiest";
+import { ErrorAlart, IsEmpty } from "../helper/formValidation";
 
 const RegisterPage = () => {
   const navigate = useNavigate();
@@ -16,25 +16,19 @@ const RegisterPage = () => {
   };
 
   const onSubnit = () => {
-    let URL = "https://serversideblog.vercel.app/api/v1/register"; //for product create
-    axios.post(URL, formData).then((res) => {
-      if (res.status === 200) {
-        Toastify({
-          text: `${res.data.message}`,
-          duration: 3000,
-          className: "info",
-          position: "center",
-        }).showToast();
-        navigate("/login"); //redirect to blog page
-      }
-      if (!res.status === 200) {
-        Toastify({
-          text: "Something went wrong",
-          duration: 3000,
-          className: "info",
-          position: "center",
-        }).showToast();
-      }
+    const { name, email, password } = formData;
+    if (IsEmpty(name)) {
+      ErrorAlart("Name is required");
+      return false;
+    } else if (IsEmpty(email)) {
+      ErrorAlart("Email is required");
+      return false;
+    } else if (IsEmpty(password)) {
+      ErrorAlart("Password is required");
+      return false;
+    }
+    RegisterRequiest(name, email, password).then((res) => {
+      navigate("/login");
     });
   };
   const divStyle = {

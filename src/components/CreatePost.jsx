@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Toastify from "toastify-js";
 import backgroundSvg from "../assets/image/mark.svg";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { ErrorAlart, IsEmpty } from "../helper/formValidation";
+import { CreatePostRequiest } from "../apiRequiest/apiRequiest";
 
 const CreatePost = () => {
   const navigate = useNavigate();
@@ -17,25 +17,28 @@ const CreatePost = () => {
   };
 
   const onSubnit = () => {
-    let URL = "https://serversideblog.vercel.app/api/v1/create"; //for product create
-    axios.post(URL, formData).then((res) => {
-      if (res.status === 200) {
-        Toastify({
-          text: "Post create success",
-          duration: 5000,
-          className: "info",
-          close: true,
-          position: "center",
-        }).showToast();
-      }
+    const { title, author, content, image } = formData;
+    if (IsEmpty(title)) {
+      ErrorAlart("Title is required");
+      return false;
+    } else if (IsEmpty(author)) {
+      ErrorAlart("Author is required");
+      return false;
+    } else if (IsEmpty(image)) {
+      ErrorAlart("Image url is required");
+      return false;
+    } else if (IsEmpty(content)) {
+      ErrorAlart("Content is required");
+      return false;
+    }
+    CreatePostRequiest(title, author, content, image).then((res) => {
       navigate("/");
     });
   };
   const divStyle = {
     backgroundImage: `url(${backgroundSvg})`,
     backgroundRepeat: "no-repeat",
-    backgroundSize: "cover", // Adjust as needed
-    // Other background properties like position, attachment, etc.
+    backgroundSize: "cover",
   };
   return (
     <div style={divStyle} className="">

@@ -4,15 +4,12 @@ import Modal from "react-bootstrap/Modal";
 import { Link } from "react-router-dom";
 import backgroundSvg from "../assets/image/mark.svg";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import Toastify from "toastify-js";
-import Cookies from "js-cookie";
+import { LoginRequiest } from "../apiRequiest/apiRequiest";
 
 const LoginModel = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
@@ -23,28 +20,9 @@ const LoginModel = () => {
   };
   const onSubnit = (e) => {
     e.preventDefault();
-    let URL = "https://serversideblog.vercel.app/api/v1/login";
-    axios.post(URL, formData).then((res) => {
-      if (res.status === 200) {
-        // Assuming the response contains a token property, you can extract it from the response
-        const token = res.data.token;
-        console.log(token);
-        // Set the token as a cookie
-        Cookies.set("token", token, { expires: 7 }); // Expires in 7 days
-        Toastify({
-          text: `${res.data.message}`,
-          duration: 4000,
-          className: "info",
-          position: "center",
-        }).showToast();
-      }
-      const getToken = Cookies.get("token");
-      if (getToken) {
-        navigate("/dashboard"); //redirect to blog page
-      } else {
-        navigate("/home"); //redirect to blog page
-      }
-      handleClose(true);
+    const { email, password } = formData;
+    LoginRequiest(email, password).then((res) => {
+      navigate("/dashboard");
     });
   };
   const divStyle = {

@@ -18,8 +18,8 @@ function App() {
           <Route path="/home" element={<HomePage />} />
           <Route path="/create" element={<PostCreateUpdatePage />} />
           <Route path="/post/:id" element={<SinglePost />} />
-          <Route path="/register" element={<RegisterPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
         </Routes>
       </BrowserRouter>
